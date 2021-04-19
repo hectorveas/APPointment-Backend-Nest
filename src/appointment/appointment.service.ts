@@ -8,12 +8,33 @@ import { Appointment } from './interfaces/appointment.interface'
 @Injectable()
 export class AppointmentService {
 
-    constructor(@InjectModel('Product') private readonly productModel: Model<Appointment>) {}
+    constructor(@InjectModel('Appointment') private readonly appointmentModel: Model<Appointment>) {}
 
     // Post a single product
     async createAppointment(createAppointmentDTO: CreateAppointmentDTO): Promise<Appointment> {
-        const newProduct = new this.productModel(createAppointmentDTO);
-        return newProduct.save();
+        const newAppointment = new this.appointmentModel(createAppointmentDTO);
+        return newAppointment.save();
+    }
+
+    async getAppointements(): Promise<Appointment[]> {
+        const appointements = await this.appointmentModel.find();
+        return appointements;
+    }
+
+    async getAppointment(id: string): Promise<Appointment> {
+        const appointment = await this.appointmentModel.findById(id); 
+        return appointment;
+    }
+
+    async deleteAppointment(id: string): Promise<any> {
+        const appointment = await this.appointmentModel.findByIdAndDelete(id);
+        return appointment;
+    }
+
+    async updateAppointment(id: string, createAppointmentDTO: CreateAppointmentDTO): Promise<Appointment> {
+        const updatedAppointment = await this.appointmentModel
+            .findByIdAndUpdate(id, createAppointmentDTO, { new: true });
+        return updatedAppointment;
     }
 
 }
