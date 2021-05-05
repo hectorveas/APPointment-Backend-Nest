@@ -5,9 +5,10 @@ import { ContactService } from './contact.service';
 import { ContactSchema } from './schemas/contac.schema';
 
 @Module({
-    imports: [MongooseModule.forFeature([{name: 'Contact', schema: ContactSchema}])],
-    providers: [ContactService],
-    controllers: [ContactController]
+  imports: [
+    MongooseModule.forFeature([{ name: 'Contact', schema: ContactSchema }]),
+  ],
+  providers: [ContactService],
+  controllers: [ContactController],
 })
-
 export class ContactModule {}

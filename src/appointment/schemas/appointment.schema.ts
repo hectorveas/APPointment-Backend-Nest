@@ -1,11 +1,10 @@
-import { Schema } from "mongoose";
+import { Schema } from 'mongoose';
 
 export const AppointmentSchema = new Schema({
-    paciente: String,
-    fechaConsulta: Date,
-    descripcion: String,
-    estadoCita: String,
-    motivoCancelacion: String,
-    personaCancelar: String
+  paciente: String,
+  fechaConsulta: Date,
+  descripcion: String,
+  estadoCita: String,
+  motivoCancelacion: String,
+  personaCancelar: String,
 });
-

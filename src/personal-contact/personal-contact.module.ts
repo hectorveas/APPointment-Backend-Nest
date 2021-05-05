@@ -5,8 +5,12 @@ import { PersonalContactService } from './personal-contact.service';
 import { PersonalContactSchema } from './schemas/personal-contact.schema';
 
 @Module({
-    imports: [MongooseModule.forFeature([{name: 'PersonalContact', schema: PersonalContactSchema}])],
-    providers: [PersonalContactService],
-    controllers: [PersonalContactController]
+  imports: [
+    MongooseModule.forFeature([
+      { name: 'PersonalContact', schema: PersonalContactSchema },
+    ]),
+  ],
+  providers: [PersonalContactService],
+  controllers: [PersonalContactController],
 })
 export class PersonalContactModule {}

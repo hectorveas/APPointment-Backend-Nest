@@ -15,7 +15,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     ContactModule,
     PersonalContactModule,
     DoctorModule,
-    PatientModule
+    PatientModule,
   ],
   controllers: [AppController],
   providers: [AppService],
